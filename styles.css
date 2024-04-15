@@ -40,7 +40,7 @@ body{
 }
 
 section{
-    padding:2rem;
+    padding:0;
     margin: 0 auto;
     max-width: 1200px;
 }
@@ -80,7 +80,8 @@ section{
     top:0; left: 0; right: 0;
     z-index: 1000;
     background: #ffffff;
-    padding: 10px;
+    padding: 3px;
+
 }
 
 .header .flex{
@@ -200,6 +201,11 @@ section{
     justify-content: center;
     align-items: flex-start;
     gap:1.5rem;
+}
+
+.service .heading{
+    padding: 15px;
+    margin-top: 10px;
 }
 
 .service .box-container .box{
@@ -504,7 +510,7 @@ body {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.login .heading{
+.login .heading,.section .heading{
     padding:30px;
 }
 
