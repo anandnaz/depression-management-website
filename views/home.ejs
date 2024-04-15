@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Welcome to SoulSync</title>
+
+        <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+        <link rel="stylesheet" href="/styles.css">
+
+    </head>
+    <body style="background-color: #e29adb">
+ 
+        <!-- header section starts  -->
+        <header class="header">
+            <section class="flex">
+                <div class="logo-container">
+                    <img src="/images/6.png" alt="SoulSync Logo">
+                    <a href="#" class="logo"><span>S</span>oul<span>S</span>ync</a>
+                </div>
+                <nav class="navbar">
+                    <a href="#home">home</a>
+                    <a href="#service">service</a>
+                    <a href="#about">about</a>
+                    <a href="#contact">contact</a>
+                    <a href="/" target="_blank">login</a>
+                </nav>
+                <div id="menu-bars" class="fas fa-bars"></div>
+            </section>
+        </header>
+        <!-- header section ends -->
+
+        <!-- home section starts  -->
+        <section class="home" id="home">
+            <div class="content">
+                <h3>Welcome to <span>S</span>oul<span>S</span>ync</span></h3>
+                <h4>Heal, Reveal, Feel : Your Interactive Sanctuary.</h4>
+                <h5>Dive into a dynamic space where healing meets revelation. Join us on a transformative journey of self-discovery and emotional empowerment.</h5>
+                <a href="#contact" class="btn">contact us</a>
+            </div>
+
+            <div class="swiper home-slider">
+                <div class="swiper-wrapper">
+                    <img class="swiper-slide" src="/images/1.png" alt="" />
+                    <img class="swiper-slide" src="/images/2.png" alt="" />
+                    <img class="swiper-slide" src="/images/3.png" alt="" />
+                    <img class="swiper-slide" src="/images/4.png" alt="" />
+                    <img class="swiper-slide" src="/images/5.png" alt="" />
+                    <img class="swiper-slide" src="/images/7.png" alt="" />
+                </div>
+            </div>
+        </section>
+        <!-- home section ends -->
+
+        <!-- service section starts  -->
+        <section class="service" id="service">
+            <h1 class="heading"> our <span>services</span> </h1>
+
+            <div class="box-container">
+
+                <div class="box">
+                    <i class="fas fa-leaf"></i>
+                    <a href="/meditation"><h3>Meditation</h3></a>
+                    <p>Unlock Your Inner Peace: Embrace Meditation to Illuminate Your Mind, Elevate Your Mood, and Rediscover the Joy Within</p>
+                </div>
+
+                <div class="box">
+                    <i class="fas fa-hands-helping"></i>
+                    <a href="/counselor"><h3>Councelling</h3></a>
+                    <p>Unlock happiness, unlock hope. Take the first step towards light. Seek counseling to break free from the shadows of depression.</p>
+                </div>
+
+                <div class="box">
+                    <i class="fas fa-file-alt"></i>
+                    <a href="/questionnaire"><h3>Questionnaire</h3></a>
+                    <p>By attempting this questionnaire , you're acknowledging your struggles and taking a proactive step towards finding support.</p>
+                </div>
+
+                <div class="box">
+                    <i class="fas fa-book"></i>
+                    <a href="/diary"><h3>Diary</h3></a>
+                    <p>Unlock the vault of your mind, let thoughts flow like a river onto these pages. In the sanctuary of this diary, your words hold the key to understanding and self-discovery.</p>
+                </div>
+
+                <div class="box">
+                    <i class="fas fa-pen-nib"></i>
+                    <a href="/quotes"><h3>Quotes</h3></a>
+                    <p>Take a moment to sip on these soul-soothing quotes like a warm cup of tea. Let their wisdom wrap around you like a comforting hug!</p>
+                </div>
+
+                <div class="box">
+                    <i class="fas fa-film"></i>
+                    <a href="/videos"><h3>Videos</h3></a>
+                    <p>Dive into uplifting videos that lift your spirits and ignite your passion. Let's soak in the good vibes and let them fuel our journey to brighter days ahead."</p>
+                </div>
+            </div>
+        </section>
+        <!-- service section ends -->
+
+        <!-- about section starts  -->
+        <section class="about" id="about">
+
+            <h1 class="heading"><span>about</span> us </h1>
+
+            <div class="row">
+
+                <div class="image">
+                    <img src="/images/8.jpg" alt="">
+                </div>
+
+                <div class="content">
+                    <p>Welcome to SoulSync, where healing meets harmony. Dive into your journey of self-discovery with our tailored depression assessment tools, personalized support resources, and seamless connection to licensed counselors.</p>
+                    <p>From uplifting stories to confidential diaries, SoulSync is your trusted companion on the path to mental well-being. Join us and synchronize your soul today.</p>
+                </div>
+            </div>
+        </section>
+        <!-- about section ends -->
+
+        
+        <section class="contact" id="contact">
+            <h1 class="heading"><span>Contact</span> us</h1>
+            <form name="submit-to-google-sheet" id="contactForm" >
+                <div class="inputBox">
+                    <input type="text" placeholder="Name" name="name" id="name">
+                    <input type="email" placeholder="Email" name="email" id="email">
+                </div>
+                <textarea name="message" placeholder="Your message" cols="30" rows="10" id="message"></textarea>
+                <input type="submit" value="Send Message" class="btn" id="submit">
+                    <span id="msg"></span>
+            </form>
+        </section>
+        <script>
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbyjcS9pIlDHoQIaJFz99PkNm4ivnG-zVEU2R0xgbBDCdYuriLSfSdBmPAei44b2tzND/exec'
+            const form = document.forms['submit-to-google-sheet']
+            const msg = document.getElementById('msg')
+
+            form.addEventListener('submit', e => {
+                 e.preventDefault()
+                fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+                .then(response => {
+                        msg.innerHTML = "Thankyou for your message!"
+                        setTimeout(function(){
+                                msg.innerHTML = ""
+
+                        },5000)
+                        form.reset()
+                })
+                .catch(error => console.error('Error!', error.message))
+            })
+        </script>
+        <!-- footer section starts  -->
+        <footer class="footer">
+
+            <section class="box-container">
+
+                <div class="box">
+                    <h3>Team members</h3>
+                    <a href="#"> <i class="fas fa-arrow-right"></i> Tanvee Kariya </a>
+                    <a href="#"> <i class="fas fa-arrow-right"></i> Yukta Perumal</a>
+                    <a href="#"> <i class="fas fa-arrow-right"></i> Kashish Bhasin </a>
+                    <a href="#"> <i class="fas fa-arrow-right"></i> Anurag Anand</a>
+                </div>
+
+                <div class="box">
+                    <h3>quick links</h3>
+                    <a href="#home"> <i class="fas fa-arrow-right"></i> home </a>
+                    <a href="#about"> <i class="fas fa-arrow-right"></i> about </a>
+                    <a href="#service"> <i class="fas fa-arrow-right"></i> service </a>
+                    <a href="#contact"> <i class="fas fa-arrow-right"></i> contact </a>
+                    <a href="login.html" target="_blank"> <i class="fas fa-arrow-right"></i> login </a>
+                </div>
+        
+                <div class="box">
+                    <h3>contact info</h3>
+                    <a href="#"> <i class="fas fa-phone"></i> +91-9934099516 </a>
+                    <a href="#"> <i class="fas fa-phone"></i> +91-9113373275 </a>
+                    <a href="#"> <i class="fas fa-envelope"></i> anandanuragnaz@gmail.com </a>
+                    <a href="#"> <i class="fas fa-envelope"></i> anandnaz1401@gmail.com </a>
+                    <a href="#"> <i class="fas fa-map-marker-alt"></i> VIT Vellore - 632014 </a>
+                </div>
+
+                <div class="box">
+                    <h3>follow us</h3>
+                    <a href="#"> <i class="fab fa-facebook-f"></i> facebook </a>
+                    <a href="#"> <i class="fab fa-twitter"></i> twitter </a>
+                    <a href="#"> <i class="fab fa-instagram"></i> instagram </a>
+                    <a href="#"> <i class="fab fa-linkedin"></i> linkedin </a>
+                </div>
+            </section>
+            <div class="credit"> created by <span>soulSync team</span> | all rights reserved </div>
+        </footer>
+        <!-- footer section ends -->
+
+        <!-- Theme Toggler -->
+        <div class="theme-toggler">
+
+            <div class="toggle-btn">
+                <i class="fas fa-cog"></i>
+            </div>
+
+            <h3>choose color</h3>
+
+            <div class="buttons">
+                <div class="theme-btn" style="background: #3867d6;"></div>
+                <div class="theme-btn" style="background: #f7b731;"></div>
+                <div class="theme-btn" style="background: #ff0033;"></div>
+                <div class="theme-btn" style="background: #20bf6b;"></div>
+                <div class="theme-btn" style="background: #fa8231;"></div>
+                <div class="theme-btn" style="background: #FC427B;"></div>
+            </div>
+        </div>
+
+        <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+        <!-- custom js file link  -->
+        <script>
+            let menu = document.querySelector('#menu-bars');
+let navbar = document.querySelector('.navbar');
+
+menu.onclick = () =>{
+  menu.classList.toggle('fa-times');
+  navbar.classList.toggle('active');
+}
+
+let themeToggler = document.querySelector('.theme-toggler');
+let toggleBtn = document.querySelector('.toggle-btn');
+
+toggleBtn.onclick = () =>{
+  themeToggler.classList.toggle('active');
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  // Select the background toggler and its children
+  const backgroundToggler = document.querySelector('.background-toggler');
+  const toggleBtn = backgroundToggler.querySelector('.toggle-btn');
+  const buttonsContainer = backgroundToggler.querySelector('.buttons');
+
+  // Add click event listener to the toggle button
+  toggleBtn.addEventListener('click', function() {
+      // Toggle the active class on the background toggler
+      backgroundToggler.classList.toggle('active');
+  });
+
+  // Select all background image buttons
+  const backgroundButtons = document.querySelectorAll('.background-toggler .background-btn');
+
+  // Add click event listener to each background image button
+  backgroundButtons.forEach(function(button) {
+      button.addEventListener('click', function() {
+          // Get the background image URL from the button's style attribute
+          const backgroundImage = button.style.backgroundImage;
+          // Apply the background image to the body element
+          document.body.style.backgroundImage = backgroundImage;
+      });
+  });
+});
+
+
+window.onscroll = () =>{
+  menu.classList.remove('fa-times');
+  navbar.classList.remove('active');
+  themeToggler.classList.remove('active');
+}
+
+document.querySelectorAll('.theme-toggler .theme-btn').forEach(btn =>{
+  
+  btn.onclick = () =>{
+    let color = btn.style.background;
+    document.querySelector(':root').style.setProperty('--main-color', color);
+  }
+});
+
+
+
+var swiper = new Swiper(".home-slider", {
+  effect: "coverflow",
+  grabCursor: true,
+  centeredSlides: true,
+  slidesPerView: "auto",
+  loop: true,
+  autoplay: {
+    delay: 3000,
+    disableOnInteraction: false,
+  },
+  coverflowEffect: {
+    rotate: 0,
+    stretch: 0,
+    depth: 100,
+    modifier: 3,
+    slideShadows: true,
+  }
+});
+
+var swiper = new Swiper(".reviews-slider", {
+  grabCursor: true,
+  loop: true,
+  spaceBetween: 10,
+  autoplay: {
+    delay: 5000,
+    disableOnInteraction: false,
+  },
+  breakpoints: {
+    0: {
+      slidesPerView: 1,
+    },
+    700: {
+      slidesPerView: 2,
+    },
+    1050: {
+      slidesPerView: 3,
+    },
+  }
+});
+
+
+
+document.addEventListener("DOMContentLoaded", function () {
+  const loginForm = document.querySelector("#login-form");
+
+  loginForm.addEventListener("submit", function (event) {
+      event.preventDefault();
+
+      const usernameInput = loginForm.querySelector('input[name="login-username"]');
+      const passwordInput = loginForm.querySelector('input[name="login-password"]');
+
+      const username = usernameInput.value;
+      const password = passwordInput.value;
+
+      if (usernameInput.checkValidity() && passwordInput.checkValidity()) {
+          alert("Login successful!");
+      } else {
+          alert("Please enter valid login credentials.");
+      }
+  });
+});
+
+
+
+
+document.addEventListener("DOMContentLoaded", function () {
+  const signupForm = document.querySelector("#signup-form");
+
+  signupForm.addEventListener("submit", function (event) {
+      event.preventDefault();
+
+      // Validate name (only letters and spaces)
+      const nameInput = signupForm.querySelector('input[name="signup-name"]');
+      if (!/^[a-zA-Z ]+$/.test(nameInput.value)) {
+          alert("Please enter a valid name with only letters and spaces.");
+          return;
+      }
+
+      // Validate contact info (only numbers)
+      const contactInput = signupForm.querySelector('input[name="signup-contact"]');
+      if (!/^[0-9]{10}$/.test(contactInput.value)) {
+          alert("Please enter a valid contact info with only numbers with 10 digits .");
+          return;
+      }
+
+      // Validate username (only letters and numbers)
+      const usernameInput = signupForm.querySelector('input[name="signup-username"]');
+      if (!/^[a-zA-Z0-9]+$/.test(usernameInput.value)) {
+          alert("Please enter a valid username with only letters and numbers.");
+          return;
+      }
+
+      // Validate email
+      const emailInput = signupForm.querySelector('input[name="signup-email"]');
+      if (!isValidEmail(emailInput.value)) {
+          alert("Please enter a valid email address.");
+          return;
+      }
+
+      // Validate password format
+      const passwordInput = signupForm.querySelector('input[name="signup-password"]');
+      if (!isValidPassword(passwordInput.value)) {
+          alert("Please enter a valid password with at least 1 uppercase letter, 1 lowercase letter, 1 digit, and 1 special character.");
+          return;
+      }
+
+      // Validate password confirmation
+      const confirmPasswordInput = signupForm.querySelector('input[name="signup-confirm-password"]');
+      if (passwordInput.value !== confirmPasswordInput.value) {
+          alert("Passwords do not match. Please enter the same password in both fields.");
+          return;
+      }
+
+      // TODO: Add logic to submit the form if all validations pass
+      var e=confirm("Form submitted successfully!");
+      {
+        if(e==true)
+        {
+          location.href="login.html";
+
+        }
+      }
+  });
+
+  // Helper function to validate email address
+  function isValidEmail(email) {
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      return emailRegex.test(email);
+  }
+
+  // Helper function to validate password format
+  function isValidPassword(password) {
+      // At least 1 uppercase, 1 lowercase, 1 digit, and 1 special character
+      const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+])[A-Za-z\d!@#$%^&*()_+]{8,}$/;
+      return passwordRegex.test(password);
+  }
+});
+
+
+
+
+// script.js
+
+document.addEventListener("DOMContentLoaded", function () {
+  // ... (existing login and signup form validation code)
+
+  // Contact form validation
+  const contactForm = document.querySelector("#contact form");
+
+  contactForm.addEventListener("submit", function (event) {
+      event.preventDefault();
+
+      // Validate name (only letters)
+      const nameInput = contactForm.querySelector('input[type="text"]');
+      if (!/^[a-zA-Z]+$/.test(nameInput.value)) {
+          alert("Please enter a valid name with only letters.");
+          return;
+      }
+
+      // Validate email
+      const emailInput = contactForm.querySelector('input[type="email"]');
+      if (!isValidEmail(emailInput.value)) {
+          alert("Please enter a valid email address.");
+          return;
+      }
+
+      // Validate number (only numbers)
+      const numberInput = contactForm.querySelector('input[type="number"]');
+      if (!/^[0-9]+$/.test(numberInput.value)) {
+          alert("Please enter a valid number with only numbers.");
+          return;
+      }
+
+      // Validate subject (only letters)
+      const subjectInput = contactForm.querySelector('input[type="text"]');
+      if (!/^[a-zA-Z]+$/.test(subjectInput.value)) {
+          alert("Please enter a valid subject with only letters.");
+          return;
+      }
+
+      // Validate message (non-empty)
+      const messageInput = contactForm.querySelector('textarea');
+      if (messageInput.value.trim() === "") {
+          alert("Please enter a message.");
+          return;
+      }
+
+      // TODO: Add logic to submit the form if all validations pass
+      alert("Contact form submitted successfully!");
+  });
+
+  // Helper function to validate email address
+  function isValidEmail(email) {
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      return emailRegex.test(email);
+  }
+});
+
+app.post('/signup', async (req, res) => {
+  try {
+      const { name, contact, username, email, password } = req.body;
+      console.log('Received data:', req.body);
+
+      const newUser = new User({ name, contact, username, email, password });
+      await newUser.save();
+      console.log('User saved successfully');
+
+      res.status(201).json({ message: 'User created successfully' });
+  } catch (error) {
+      console.error('Error saving user:', error);
+      res.status(500).json({ message: 'Internal server error' });
+  }
+});
+
+        </script>
+
+    </body>
+</html>

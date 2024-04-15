@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PHQ-9 Depression Test Questionnaire</title>
+<style>
+   body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: cursive;
+  }
+  .content {
+    max-width: 900px;
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    
+  }
+  .header {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  .questionnaire {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    width: 100%;
+     font-family: arimo;
+     margin-left: 125px;
+  }
+  .question-container {
+    display: none;
+    margin-bottom: 20px;
+  }
+  .question {
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  .options-container {
+    display: flex;
+    flex-direction: column;
+  }
+  .option {
+    margin-bottom: 10px;
+  }
+  .btn {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+  }
+  .btn:hover {
+    background-color: #0056b3;
+  }
+  #logo{
+    width : 45vw;
+    height: 26vh;
+  }
+  .result{
+    background-color : "#c69dc6";
+    font-family: cursive;
+
+  }
+  </style>
+</head>
+<body>
+    <div class="content">
+        <div class="header">
+          <img id = "logo" src="/images/soulsync_logo.png" alt="PHQ-9 Test">
+          <p style = "font-family: 'font-family: arimo;"> Your answers can spark a conversation with a healthcare professional and guide you toward the support you deserve. Remember, taking care of your mental health is a courageous step toward a brighter tomorrow. <br>
+         <p style = "font-size: larger; font-weight: 600;"> Remember you're not alone in this journey !</p>
+        </div>
+<div class="questionnaire">
+  <div class="question-container" id="question1">
+    <div class="question">
+      <p>1 Do you find yourself lacking interest or pleasure in activities? Do you often feel down, depressed, or hopeless?</p>
+    </div>
+    <div class="options-container">
+      <label class="option"><input type="radio" name="q1" value="0"> A) Not at all</label>
+      <label class="option"><input type="radio" name="q1" value="1"> B) Several days</label>
+      <label class="option"><input type="radio" name="q1" value="2"> C) More than half the days</label>
+      <label class="option"><input type="radio" name="q1" value="3"> D) Nearly everyday</label>
+    </div>
+    <button class="btn" onclick="nextQuestion()">Next</button>
+  </div>
+  <div class="question-container" id="question2">
+    <div class="question">
+      <p>Are you experiencing difficulty falling asleep, staying asleep, or oversleeping?</p>
+    </div>
+    <div class="options-container">
+      <label class="option"><input type="radio" name="q2" value="0"> A) Not at all</label>
+      <label class="option"><input type="radio" name="q2" value="1"> B) Several days</label>
+      <label class="option"><input type="radio" name="q2" value="2"> C) More than half the days</label>
+      <label class="option"><input type="radio" name="q2" value="3"> D) Nearly everyday</label>
+    </div>
+    <button class="btn" onclick="nextQuestion()">Next</button>
+  </div>
+  <div class="question-container" id="question3">
+    <div class="question">
+      <p>Do you frequently feel tired or have low energy levels?</p>
+    </div>
+    <div class="options-container">
+      <label class="option"><input type="radio" name="q3" value="0"> A) Not at all</label>
+      <label class="option"><input type="radio" name="q3" value="1"> B) Several days</label>
+      <label class="option"><input type="radio" name="q3" value="2"> C) More than half the days</label>
+      <label class="option"><input type="radio" name="q3" value="3"> D) Nearly everyday</label>
+    </div>
+    <button class="btn" onclick="nextQuestion()">Next</button>
+  </div>
+  <div class="question-container" id="question4">
+    <div class="question">
+      <p>Have you noticed changes in your appetite, either eating too little or overeating?</p>
+    </div>
+    <div class="options-container">
+      <label class="option"><input type="radio" name="q4" value="0"> A) Not at all</label>
+      <label class="option"><input type="radio" name="q4" value="1"> B) Several days</label>
+      <label class="option"><input type="radio" name="q4" value="2"> C) More than half the days</label>
+      <label class="option"><input type="radio" name="q4" value="3"> D) Nearly everyday</label>
+    </div>
+    <button class="btn" onclick="nextQuestion()">Next</button>
+  </div>
+  <div class="question-container" id="question5">
+    <div class="question">
+      <p>Do you frequently feel bad about yourself, or feel like you're a failure or have disappointed yourself or your family?</p>
+    </div>
+    <div class="options-container">
+      <label class="option"><input type="radio" name="q5" value="0"> A) Not at all</label>
+      <label class="option"><input type="radio" name="q5" value="1"> B) Several days</label>
+      <label class="option"><input type="radio" name="q5" value="2"> C) More than half the days</label>
+      <label class="option"><input type="radio" name="q5" value="3"> D) Nearly everyday</label>
+    </div>
+    <button class="btn" onclick="nextQuestion()">Next</button>
+  </div>
+  <div class="question-container" id="question6">
+    <div class="question">
+      <p>Are you having trouble focusing on tasks such as reading or watching television?</p>
+    </div>
+    <div class="options-container">
+      <label class="option"><input type="radio" name="q6" value="0"> A) Not at all</label>
+      <label class="option"><input type="radio" name="q6" value="1"> B) Several days</label>
+      <label class="option"><input type="radio" name="q6" value="2"> C) More than half the days</label>
+      <label class="option"><input type="radio" name="q6" value="3"> D) Nearly everyday</label>
+    </div>
+    <button class="btn" onclick="nextQuestion()">Next</button>
+  </div>
+  <div class="question-container" id="question7">
+    <div class="question">
+      <p>Do you find it difficult to concentrate on tasks like reading the newspaper or watching television?</p>
+    </div>
+    <div class="options-container">
+      <label class="option"><input type="radio" name="q7" value="0"> A) Not at all</label>
+      <label class="option"><input type="radio" name="q7" value="1"> B) Several days</label>
+      <label class="option"><input type="radio" name="q7" value="2"> C) More than half the days</label>
+      <label class="option"><input type="radio" name="q7" value="3"> D) Nearly everyday</label>
+    </div>
+    <button class="btn" onclick="nextQuestion()">Next</button>
+  </div>
+  <div class="question-container" id="question8">
+    <div class="question">
+      <p>Have you observed yourself moving or speaking slowly, to the point where others might notice? Conversely, have you been unusually fidgety or restless, moving around more than usual?</p>
+    </div>
+    <div class="options-container">
+      <label class="option"><input type="radio" name="q8" value="0"> A) Not at all</label>
+      <label class="option"><input type="radio" name="q8" value="1"> B) Several days</label>
+      <label class="option"><input type="radio" name="q8" value="2"> C) More than half the days</label>
+      <label class="option"><input type="radio" name="q8" value="3"> D) Nearly everyday</label>
+    </div>
+    <button class="btn" onclick="nextQuestion()">Next</button>
+  </div>
+  <div class="question-container" id="question9">
+    <div class="question">
+      <p>Do you have thoughts about being better off dead, or thoughts of hurting yourself in any way?</p>
+    </div>
+    <div class="options-container">
+      <label class="option"><input type="radio" name="q9" value="0"> A) Not at all</label>
+      <label class="option"><input type="radio" name="q9" value="1"> B) Several days</label>
+      <label class="option"><input type="radio" name="q9" value="2"> C) More than half the days</label>
+      <label class="option"><input type="radio" name="q9" value="3"> D) Nearly everyday</label>
+    </div>
+    <button class="btn" onclick="nextQuestion()">Next</button>
+  </div>
+  <div id="result"></div> <!-- This div will display the result -->
+</div>
+</div>
+<script>
+    var currentQuestion = 1;
+    var totalQuestions = 9;
+  
+    function nextQuestion() {
+      var selectedOption = document.querySelector('input[name="q' + currentQuestion + '"]:checked');
+      if (!selectedOption) {
+        alert('Please select an option before proceeding.');
+        return;
+      }
+  
+      var currentQuestionElement = document.getElementById('question' + currentQuestion);
+      currentQuestionElement.style.display = 'none';
+      currentQuestion++;
+      if (currentQuestion <= totalQuestions) {
+        var nextQuestionElement = document.getElementById('question' + currentQuestion);
+        nextQuestionElement.style.display = 'block';
+      } else {
+        // Handle end of questions
+        alert('End of questionnaire');
+      }
+    }
+  
+    // Display the first question initially
+    document.getElementById('question1').style.display = 'block';
+  </script>
+  
+ <script>
+  var totalScore = 0;
+
+  function nextQuestion() {
+    var selectedOption = document.querySelector('input[name="q' + currentQuestion + '"]:checked');
+    if (!selectedOption) {
+      alert('Please select an option before proceeding.');
+      return;
+    }
+
+    // Add the score of the selected option to the total score
+    totalScore += parseInt(selectedOption.value);
+
+    var currentQuestionElement = document.getElementById('question' + currentQuestion);
+    currentQuestionElement.style.display = 'none';
+    currentQuestion++;
+    if (currentQuestion <= totalQuestions) {
+      var nextQuestionElement = document.getElementById('question' + currentQuestion);
+      nextQuestionElement.style.display = 'block';
+    } else {
+      // Handle end of questions
+      displayDepressionLevel(totalScore);
+    }
+  }
+
+  function displayDepressionLevel(score) {
+    var depressionLevel = '';
+    if (score >= 1 && score <= 4) {
+      depressionLevel = 'Minimal depression';
+    } else if (score >= 5 && score <= 9) {
+      depressionLevel = 'Mild depression';
+    } else if (score >= 10 && score <= 14) {
+      depressionLevel = 'Moderate depression';
+    } else if (score >= 15 && score <= 19) {
+      depressionLevel = 'Moderately severe depression';
+    } else if (score >= 20 && score <= 27) {
+      depressionLevel = 'Severe depression';
+    }
+
+    var resultElement = document.getElementById('result');
+    resultElement.innerHTML = '<p>Depression Severity: ' + depressionLevel + '</p>';
+    resultElement.innerHTML += '<p>Here are some messages based on your depression level:</p>';
+    switch(depressionLevel) {
+      case 'Minimal depression':
+        resultElement.innerHTML += '<p class = "result">🌟 Thank you for completing the depression assessment on SoulSync! Your well-being matters to us. Based on your responses, it seems you are experiencing mild depression symptoms. Remember, you are not alone. Seeking support from a mental health professional or loved ones can make a difference. We are here to help along your healing journey. 💖 Here are some remedies :: <br>1.<b>Daily Exercise 🏋‍♂:</b> Engage in regular physical activity to boost endorphins and improve mood. Try activities like walking, cycling, or dancing for at least 30 minutes a day. <br>2.<b>Mindful Breathing 🧘‍♀:</b> Practice deep breathing exercises or mindfulness meditation to reduce stress and promote relaxation. Take slow, deep breaths and focus on the present moment to calm the mind.<br>3.<b>Healthy Nutrition 🥗:</b> Maintain a balanced diet rich in fruits, vegetables, whole grains, and lean proteins. Limit processed foods, sugary snacks, and caffeine, and prioritize foods that nourish both your body and mind.<br>4.<b>Creative Expression 🎨:</b> Explore your creativity through art, music, writing, or other expressive activities. Engaging in creative pursuits can provide an outlet for emotions and promote self-expression.<br>5.<b>Social Connection 💬:</b> Reach out to friends, family, or support groups for connection and emotional support. Share your feelings and experiences with trusted individuals, and do not hesitate to ask for help when needed.<br>      - The SoulSync Team 🌻</p> ';
+        break;
+      case 'Mild depression':
+        resultElement.innerHTML += '<p class = "result ">🌟 Thank you for taking the SoulSync depression assessment! Your well-being is our priority, and we applaud your effort to understand and address your mental health.Based on your responses, it seems you are experiencing minimal depression. It is normal to have ups and downs, and mild symptoms are common.Minimal depression might show as occasional sadness, but it is not significantly affecting your daily life. Remember, you are not alone. Support is available to help you manage your feelings.Even though your symptoms are mild, it is important to prioritize your mental health. Self-care, supportive connections, and professional guidance can all contribute to your well-being.Your mental health journey is unique, and there is no one-size-fits-all approach. Explore resources on SoulSync and reach out if you need help. We are here to support you every step of the way.Wishing you strength and resilience on your path to well-being.Here are some remedies :: <br>1.<b>Sunshine Therapy ☀:</b> Spend time outdoors in natural sunlight to boost your mood and vitamin D levels. Take a walk in the park, do some gardening, or simply sit in the sun for a few minutes each day.<br>2.<b>Gratitude Journaling 📝:</b> Start a gratitude journal and write down three things you are grateful for each day. Focusing on the positives can shift your perspective and cultivate a sense of appreciation.<br><b>3.Laughter Therapy 😄:</b> Surround yourself with humor by watching funny movies, reading comic strips, or spending time with people who make you laugh. Laughter releases endorphins, which are natural mood lifters.<br>4.<b>Aromatherapy 🌿:</b> Use essential oils like lavender, chamomile, or bergamot to create a calming atmosphere at home. Diffuse oils, add them to bathwater, or simply inhale their aroma to promote relaxation and reduce stress.<br>5.<b>Mindful Movement 🌱: </b>Practice gentle exercises like yoga, tai chi, or qigong to connect with your body and reduce tension. Focus on slow, deliberate movements and mindful breathing to center yourself and enhance well-being.        <br>                                                         Warm regards,                                                                                                                         The SoulSync Team 🌻</p>';
+        break;
+      case 'Moderate depression':
+        resultElement.innerHTML += '<p class = "result">🌟 Thank you for bravely sharing your journey with us! Based on your SoulSync assessment, it seems you are experiencing moderate depression symptoms. Remember, you are not alone! Seeking support from a mental health professional is key. Plus, integrating self-care practices like exercise, mindfulness, and connecting with loved ones can make a big difference. We are here for you every step of the way!💖 Here are some remedies :: <br>1.<b>Daily Exercise Routine 🏋‍♂:</b> Incorporate regular physical activity into your schedule, such as jogging, cycling, or yoga. Exercise releases endorphins, which can help improve mood and reduce feelings of depression.<br>2.<b>Mindfulness Meditation 🧘‍♀:</b> Practice mindfulness meditation to cultivate present-moment awareness and reduce rumination. Spend a few minutes each day focusing on your breath or using guided meditation apps to promote relaxation and mental clarity.<br>3.<b>Creative Expression 🎨: </b>Engage in creative activities that allow you to express yourself, such as painting, writing, or playing music. Creative expression can provide an outlet for emotions and promote feelings of accomplishment and joy.<br>4.<b>Healthy Nutrition 🍎: </b>Focus on nourishing your body with a balanced diet rich in fruits, vegetables, whole grains, and lean proteins. Avoid excessive caffeine, sugar, and processed foods, which can negatively impact mood and energy levels.<br>5.<b>Social Support Network 👫:</b> Reach out to supportive friends, family members, or support groups who can offer empathy, encouragement, and companionship. Sharing your feelings and experiences with others can provide validation and a sense of connection during difficult times.<br> - The SoulSync Team 🌻</p>';
+        break;
+      case 'Moderately severe depression':
+        resultElement.innerHTML += '<p class = "result">🌟 Thank you for completing the SoulSync depression assessment. We are here to support you through this challenging time. Based on your responses, it seems you are experiencing moderate to severe depression symptoms. Remember, you are not alone. Seeking help from a mental health professional is crucial for your healing journey. We are here for you every step of the way. 💖 Here are some remedies :: 1.<b>Journaling Therapy 📝:</b> Dedicate time each day to journal your thoughts, feelings, and experiences. Writing can help you process emotions, gain insights into your mental state, and track patterns of thought and behavior.<br>2.<b>Nature Therapy 🌳: </b>Spend time outdoors in natural settings, such as parks, forests, or beaches. Nature has a calming effect on the mind and body, reducing stress and promoting relaxation. Take walks, practice mindfulness, or simply sit and soak in the beauty of your surroundings.<br>3.<b>Breathing Exercises 🌬:</b> Practice deep breathing exercises to activate the body relaxation response and calm the nervous system. Try techniques like diaphragmatic breathing or box breathing to reduce anxiety, improve mood, and enhance overall well-being.<br>4.<b>Self-Compassion Practices 💕:</b> Cultivate self-compassion by treating yourself with kindness, understanding, and acceptance. Practice positive self-talk, acknowledge your strengths and achievements, and forgive yourself for any perceived shortcomings or mistakes.<br>5.<b>Routine and Structure 📅:</b> Establish a daily routine and structure to provide stability and purpose in your life. Set regular sleep and wake times, schedule activities that bring you joy and fulfillment, and prioritize self-care practices like healthy eating, exercise, and relaxation.       <br>                                                                                                      - The SoulSync Team 🌻</p>';
+        break;
+      case 'Severe depression':
+        resultElement.innerHTML += '<p class = "result">🌟 Thank you for completing the SoulSync depression assessment. We are here to support you. Based on your responses, it seems you are experiencing severe depression symptoms. Remember, you are not alone. Seeking help from a mental health professional is vital. We are here for you every step of the way. 💖Here are some remedies ::  <br> 1.<b> Mindfulness Meditation 🧘‍♂: </b>Incorporate mindfulness meditation into your daily routine. Dedicate a few minutes each day to sit quietly, focus on your breath, and observe your thoughts and sensations without judgment. Mindfulness can help cultivate awareness, reduce rumination, and promote emotional well-being.<br>2.<b>Creative Expression Therapy 🎨:</b> Engage in creative activities that allow you to express yourself, such as painting, drawing, writing poetry, or playing music. Creative expression can serve as a powerful outlet for emotions, provide a sense of accomplishment, and foster self-discovery and healing.<br>3.<b>Physical Activity 🏃‍♀:</b> Incorporate regular exercise into your routine, aiming for at least 30 minutes of moderate-intensity activity most days of the week. Exercise releases endorphins, neurotransmitters that act as natural mood lifters, and can help reduce symptoms of depression, improve sleep, and boost overall well-being.<br>4.<b>Social Support Networks 🤝:</b> Reach out to trusted friends, family members, or support groups for emotional support and connection. Sharing your experiences with others who understand can provide validation, encouragement, and a sense of belonging, reducing feelings of isolation and loneliness.<br>5.<b>Professional Therapy or Counseling 🛋:</b> Seek professional help from a licensed therapist, counselor, or psychiatrist experienced in treating depression. Therapy can provide valuable support, guidance, and coping strategies tailored to your individual needs, helping you navigate through challenges and work towards healing and recovery.                                                 - The SoulSync Team 🌻</p>';
+        break;
+      default:
+        resultElement.innerHTML += '<p>Unable to determine depression severity. Please consult with a healthcare professional for an accurate assessment.</p>';
+    }
+  }
+</script>
+</body>
+</html>
